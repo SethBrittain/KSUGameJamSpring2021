@@ -1,0 +1,109 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scripts/Comment.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/icon.png" type="Texture" id=2]
+[ext_resource path="res://Fonts/arial.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Fonts/arialbd.ttf" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 31
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 23
+font_data = ExtResource( 3 )
+
+[node name="CommentContainer" type="MarginContainer"]
+anchor_right = 1.0
+margin_bottom = 303.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Comment" type="HBoxContainer" parent="."]
+margin_right = 1920.0
+margin_bottom = 303.0
+grow_horizontal = 0
+size_flags_horizontal = 3
+size_flags_vertical = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Spacer" type="Control" parent="Comment"]
+margin_right = 150.0
+rect_min_size = Vector2( 150, 0 )
+size_flags_vertical = 0
+
+[node name="CommentBody" type="HBoxContainer" parent="Comment"]
+margin_left = 154.0
+margin_right = 1766.0
+margin_bottom = 303.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+custom_constants/separation = 24
+
+[node name="TextureRect" type="TextureRect" parent="Comment/CommentBody"]
+margin_right = 96.0
+margin_bottom = 96.0
+grow_vertical = 0
+rect_min_size = Vector2( 96, 96 )
+size_flags_vertical = 0
+texture = ExtResource( 2 )
+stretch_mode = 1
+
+[node name="Text" type="VBoxContainer" parent="Comment/CommentBody"]
+margin_left = 120.0
+margin_right = 1612.0
+margin_bottom = 303.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+custom_constants/separation = 9
+
+[node name="UsernameNode" type="Label" parent="Comment/CommentBody/Text"]
+margin_right = 1492.0
+margin_bottom = 36.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 1 )
+text = "Username"
+
+[node name="CommentBody" type="Label" parent="Comment/CommentBody/Text"]
+margin_top = 45.0
+margin_right = 1492.0
+margin_bottom = 303.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 2 )
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="Comment/CommentBody/Text/CommentBody"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Spacer2" type="Control" parent="Comment"]
+margin_left = 1770.0
+margin_right = 1920.0
+rect_min_size = Vector2( 150, 0 )
+size_flags_vertical = 0
+
+[node name="Button" type="Button" parent="."]
+modulate = Color( 1, 1, 1, 0.439216 )
+margin_right = 1920.0
+margin_bottom = 303.0
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="button_up" from="Comment/CommentBody/Text/CommentBody/Button" to="Comment/CommentBody/Text/CommentBody" method="_on_Button_button_up"]
